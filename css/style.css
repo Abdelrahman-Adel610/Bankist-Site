@@ -62,7 +62,7 @@ div.hidden {
 }
 
 .overlay {
-    position: absolute;
+    position: fixed;
     height: 100%;
     width: 100%;
     background-color: #00000091;
@@ -74,11 +74,11 @@ div.hidden {
 }
 
 .modal {
+    position: fixed;
     z-index: 99999999;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    position: absolute;
     background-color: #F3F3F3;
     width: 40.625rem;
     height: 34.375rem;
