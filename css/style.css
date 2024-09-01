@@ -178,7 +178,7 @@ nav ul {
 
 
 .btn {
-    padding: .875rem 36px;
+    padding: .875rem 2.25rem;
     border-radius: 2rem;
     cursor: pointer;
 }
@@ -221,7 +221,7 @@ nav .logo {
 }
 
 section {
-    border-bottom: #444 1px solid;
+    border-bottom: #444 .0625rem solid;
 }
 
 /******************************************************/
@@ -403,7 +403,7 @@ ion-icon {
 /******************************************************/
 /************************ SLIDER ***********************/
 #Testimonials .header {
-    margin-bottom: 128px;
+    margin-bottom: 8rem;
 }
 
 .slider {
@@ -430,20 +430,20 @@ ion-icon {
 .slide {
     width: 75%;
     margin-inline: auto;
-    padding-bottom: 80px;
+    padding-bottom: 5rem;
 }
 
 .slide h2 {
     position: relative;
     font-weight: 500;
-    margin-bottom: 44px;
+    margin-bottom: 2.75rem;
 }
 
 .slide p {
-    font-size: 18px;
+    font-size: 1.125rem;
     color:
         #666666;
-    margin-bottom: 44px;
+    margin-bottom: 2.75rem;
     line-height: 1.9;
     font-weight: 300;
 }
@@ -451,10 +451,10 @@ ion-icon {
 .slide h2::before {
     content: "\201C";
     position: absolute;
-    top: -60px;
-    left: -90px;
+    top: -3.75rem;
+    left: -5.625rem;
     line-height: 1;
-    font-size: 190px;
+    font-size: 11.875rem;
     color: var(--color-primary);
     z-index: -1;
 }
@@ -468,24 +468,24 @@ ion-icon {
 }
 
 .dots button {
-    margin-right: 12px;
-    width: 10px;
+    margin-right: .75rem;
+    width: .625rem;
     background-color: #44444485;
-    border: 0px;
-    height: 10px;
+    border: 0;
+    height: .625rem;
     border-radius: 50%;
     cursor: pointer;
 }
 
 .owner {
     display: flex;
-    gap: 24px;
+    gap: 1.5rem;
     align-items: center;
 }
 
 .owner img {
     border-radius: 50%;
-    height: 90px;
+    height: 5.625rem;
     width: auto;
 }
 
@@ -495,5 +495,31 @@ ion-icon {
 }
 
 .owner p {
-    margin-top: 40px;
+    margin-top: 2.5rem;
+}
+
+/******************************************************/
+/************************ OPEN ACCOUNT ***********************/
+#OpenAccountNow {
+    background-color: #37383D;
+    overflow: hidden;
+    text-align: center;
+}
+
+#OpenAccountNow h2 {
+    width: 70%;
+    color: #fff;
+    margin-top: 5rem;
+    font-size: 2.75rem;
+    margin-inline: auto;
+    font-weight: 500;
+}
+
+#OpenAccountNow a {
+    color: #000;
+    font-weight: 500;
+    margin-block: 5rem;
+    padding: 1.5rem 3rem;
+    border-radius: 3rem;
+
 }

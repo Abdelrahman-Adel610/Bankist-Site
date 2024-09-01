@@ -3,6 +3,7 @@ let openAccountBtn = document.querySelector("nav ul li:last-child");
 let overlay = document.querySelector(".overlay");
 let modal = document.querySelector(".modal");
 let learnMoreBtn = document.querySelector(".center a");
+let openAccBtnFooter = document.querySelector("#OpenAccountNow a");
 let featuresNav = document.querySelectorAll("nav a")[0];
 let OperationsNav = document.querySelectorAll("nav a")[1];
 let TestimonialNav = document.querySelectorAll("nav a")[2];
@@ -35,6 +36,7 @@ function scrollto(section) {
 }
 /************** EVENTS **************/
 openAccountBtn.addEventListener("click", displayModal);
+openAccBtnFooter.addEventListener("click", displayModal);
 close_Modal.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
 
