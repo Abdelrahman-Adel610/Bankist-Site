@@ -1,3 +1,17 @@
+:root {
+    --color-primary: #5ec576;
+    --color-secondary: #ffcb03;
+    --color-tertiary: #ff585f;
+    --color-primary-darker: #4bbb7d;
+    --color-secondary-darker: #ffbb00;
+    --color-tertiary-darker: #fd424b;
+    --color-primary-opacity: #5ec5763a;
+    --color-secondary-opacity: #ffcd0331;
+    --color-tertiary-opacity: #ff58602d;
+    --gradient-primary: linear-gradient(to top left, #39b385, #9be15d);
+    --gradient-secondary: linear-gradient(to top left, #ffb003, #ffcb03);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -10,9 +24,7 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
-    overflow: hidden;
-}
+
 
 button {
     display: inline-block;
@@ -119,13 +131,13 @@ div.hidden {
 }
 
 .modal form button:hover {
-    background-color: #4bbb7d;
+    background-color: var(--color-primary-darker);
     transition: all 0.3s;
 }
 
 .modal form button {
     cursor: pointer;
-    background-color: #5ec576;
+    background-color: var(--color-primary);
     padding: 1rem 2rem;
     font-size: 1.25rem;
     font-weight: 500;
@@ -154,19 +166,30 @@ nav ul {
     list-style: none;
 }
 
-ul li:last-child {
-    background-color: #4CBC7C;
+ul li:last-child a {
+    background-color: var(--color-primary);
     padding: .875rem 1.25rem;
     border-radius: 2rem;
+}
+
+ul li:last-child :hover {
+    background-color: var(--color-primary-darker);
+    transition: all 0.3s;
+
 }
 
 nav .logo {
     width: 12.5%;
 }
 
+section {
+    border-bottom: #444 1px solid;
+}
+
 .container {
     max-width: 75rem;
     margin-inline: auto;
+
 }
 
 #header {
@@ -174,7 +197,6 @@ nav .logo {
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-
 }
 
 picture {
@@ -210,12 +232,11 @@ picture {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(-135deg, #93D698, #99D988);
-
+    background-image: var(--gradient-primary);
     transform: skewX(-15deg) scale(1.04);
 }
 
 header a {
-    color: #4CBC7C;
-    border-bottom: #4CBC7C .0625rem solid;
+    color: var(--color-primary);
+    border-bottom: var(--color-primary) .0625rem solid;
 }
