@@ -523,3 +523,42 @@ ion-icon {
     border-radius: 3rem;
 
 }
+
+/******************************************************/
+/************************ FOOTER ***********************/
+footer {
+    padding-block: 5rem;
+    background-color: #37383D;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+}
+
+footer ul {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+
+}
+
+footer ul a {
+    font-size: 1rem;
+    color: #fff;
+
+}
+
+footer img {
+    width: 4.0625rem;
+}
+
+footer p {
+    color: #aaa;
+}
+
+footer p a {
+    color: #fff;
+    font-size: 1.125rem;
+}
