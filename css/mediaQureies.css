@@ -14,5 +14,22 @@
     .center {
         flex-direction: column;
         text-align: center;
+        gap: 5rem;
+    }
+
+    .featured--gallery {
+        grid-template-columns: 1fr;
+        align-items: center;
+        justify-items: center;
+        text-align: center;
+        gap: 0;
+    }
+
+    .card {
+        margin-bottom: 5rem;
+    }
+
+    .first {
+        grid-row: 3/4;
     }
 }
