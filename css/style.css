@@ -176,14 +176,41 @@ nav ul {
     list-style: none;
 }
 
-ul li:last-child a {
-    background-color: var(--color-primary);
+
+.btn {
     padding: .875rem 1.25rem;
     border-radius: 2rem;
 }
 
-ul li:last-child :hover {
+.btn--green {
+    background-color: var(--color-primary);
+
+}
+
+.btn--yellow {
+    background-color: var(--color-secondary);
+
+}
+
+.btn--red {
+    background-color: var(--color-tertiary);
+
+}
+
+.btn--green:hover {
     background-color: var(--color-primary-darker);
+    transition: all 0.3s;
+
+}
+
+.btn--yellow:hover {
+    background-color: var(--color-secondary-darker);
+    transition: all 0.3s;
+
+}
+
+.btn--red:hover {
+    background-color: var(--color-tertiary-darker);
     transition: all 0.3s;
 
 }
