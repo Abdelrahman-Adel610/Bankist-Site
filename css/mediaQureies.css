@@ -1,0 +1,18 @@
+@media screen and (max-width:1300px) {
+    html {
+        font-size: 80%;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    html {
+        font-size: 70%;
+    }
+}
+
+@media screen and (max-width:760px) {
+    .center {
+        flex-direction: column;
+        text-align: center;
+    }
+}
