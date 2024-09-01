@@ -7,6 +7,7 @@ let featuresNav = document.querySelectorAll("nav a")[0];
 let OperationsNav = document.querySelectorAll("nav a")[1];
 let TestimonialNav = document.querySelectorAll("nav a")[2];
 let featuresSection = document.getElementById("Features");
+let OperationsSection = document.getElementById("Operations");
 let nav = document.querySelector(".nav");
 
 let close_Modal = document.querySelector(".modal svg");
@@ -41,4 +42,7 @@ learnMoreBtn.addEventListener("click", function (e) {
 });
 featuresNav.addEventListener("click", function (e) {
   scrollto(featuresSection);
+});
+OperationsNav.addEventListener("click", function (e) {
+  scrollto(OperationsSection);
 });

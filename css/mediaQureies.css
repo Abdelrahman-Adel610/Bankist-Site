@@ -32,4 +32,11 @@
     .first {
         grid-row: 3/4;
     }
+
+    .msg {
+
+        transform: translateY(0rem);
+        margin-top: 2rem;
+
+    }
 }
