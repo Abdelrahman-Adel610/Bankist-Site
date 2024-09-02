@@ -39,6 +39,7 @@ a {
 
 }
 
+
 img {
     width: 100%;
 }
@@ -174,6 +175,12 @@ nav ul {
     justify-content: space-between;
     align-items: center;
     list-style: none;
+}
+
+nav li,
+nav .logo {
+    transition: all 0.3s;
+
 }
 
 

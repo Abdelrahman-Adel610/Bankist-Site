@@ -30,6 +30,20 @@ function scrollto(sectionid) {
     behavior: "smooth",
   });
 }
+function changeNavOpacity(e) {
+  let element = e.target;
+  console.log(element);
+
+  if (element.closest("li")) {
+    let parent = e.target.closest(".nav");
+    let links = parent.querySelectorAll("li");
+    let logo = parent.querySelector(".logo");
+    links.forEach((el) => {
+      if (el !== element.closest("li")) el.style.opacity = `${this}`;
+    });
+    logo.style.opacity = `${this}`;
+  }
+}
 /************** EVENTS **************/
 openAccountBtn.addEventListener("click", displayModal);
 openAccBtnFooter.addEventListener("click", displayModal);
@@ -41,7 +55,6 @@ learnMoreBtn.addEventListener("click", function (e) {
 });
 nav.addEventListener("click", function (e) {
   let sectionId = e.target.getAttribute("href");
-
   if (sectionId) {
     e.preventDefault();
     scrollto(sectionId.slice(1));
@@ -59,3 +72,5 @@ operationsContainer.addEventListener("click", function (e) {
       .classList.remove("hidden");
   }
 });
+nav.addEventListener("mouseover", changeNavOpacity.bind(0.5));
+nav.addEventListener("mouseout", changeNavOpacity.bind(1));
