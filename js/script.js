@@ -4,14 +4,7 @@ let overlay = document.querySelector(".overlay");
 let modal = document.querySelector(".modal");
 let learnMoreBtn = document.querySelector(".center a");
 let openAccBtnFooter = document.querySelector("#OpenAccountNow a");
-let featuresNav = document.querySelectorAll("nav a")[0];
-let OperationsNav = document.querySelectorAll("nav a")[1];
-let TestimonialNav = document.querySelectorAll("nav a")[2];
-let featuresSection = document.getElementById("Features");
-let OperationsSection = document.getElementById("Operations");
-let TestimonialsSection = document.getElementById("Testimonials");
 let nav = document.querySelector(".nav");
-
 let close_Modal = document.querySelector(".modal svg");
 /************** UTILITIES **************/
 function displayModal() {
@@ -22,7 +15,8 @@ function closeModal() {
   overlay.classList.toggle("hidden");
   modal.classList.toggle("hidden");
 }
-function scrollto(section) {
+function scrollto(sectionid) {
+  let section = document.getElementById(sectionid);
   console.log(Number.parseFloat(getComputedStyle(nav).height));
 
   window.scrollTo({
@@ -43,12 +37,12 @@ overlay.addEventListener("click", closeModal);
 learnMoreBtn.addEventListener("click", function (e) {
   scrollto(featuresSection);
 });
-featuresNav.addEventListener("click", function (e) {
-  scrollto(featuresSection);
-});
-OperationsNav.addEventListener("click", function (e) {
-  scrollto(OperationsSection);
-});
-TestimonialNav.addEventListener("click", function (e) {
-  scrollto(TestimonialsSection);
+nav.addEventListener("click", function (e) {
+  let sectionId = e.target.getAttribute("href");
+  console.log(sectionId);
+
+  if (sectionId) {
+    e.preventDefault();
+    scrollto(sectionId.slice(1));
+  }
 });
