@@ -353,6 +353,10 @@ ion-icon {
 
 /******************************************************/
 /********************* OPERATIONS SECTION *********************/
+.active {
+    transform: translateY(-0.3125rem);
+}
+
 .lables {
     display: flex;
     justify-content: center;
