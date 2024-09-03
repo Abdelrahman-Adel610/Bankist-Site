@@ -22,17 +22,16 @@ function scrollto(sectionid) {
   let section = document.getElementById(sectionid);
 
   window.scrollTo({
-    left: section.getBoundingClientRect().x + window.pageXOffset,
+    left: section.getBoundingClientRect().x + window.scrollX,
     top:
       section.getBoundingClientRect().y +
-      window.pageYOffset -
+      window.scrollY -
       Number.parseFloat(getComputedStyle(nav).height),
     behavior: "smooth",
   });
 }
 function changeNavOpacity(e) {
   let element = e.target;
-  console.log(element);
 
   if (element.closest("li")) {
     let parent = e.target.closest(".nav");

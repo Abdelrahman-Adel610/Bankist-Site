@@ -361,7 +361,7 @@ ion-icon {
 /******************************************************/
 /********************* OPERATIONS SECTION *********************/
 .active {
-    transform: translateY(-0.3125rem);
+    transform: translateY(-0.625rem);
 }
 
 .lables {
@@ -371,6 +371,7 @@ ion-icon {
 }
 
 .lables .btn {
+    transition: all 0.3s;
     font-size: 1.125rem;
     font-weight: 600;
     letter-spacing: .0625rem;
