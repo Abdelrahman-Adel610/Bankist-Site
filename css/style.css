@@ -334,6 +334,10 @@ header a {
     padding: 2rem;
 }
 
+.lazy {
+    filter: blur(1.25rem);
+}
+
 .card {
     padding: 3.875rem;
 }

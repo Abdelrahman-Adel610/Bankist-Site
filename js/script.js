@@ -11,6 +11,8 @@ let operationsContainer = document.querySelector(".lables");
 let operations = document.querySelectorAll(".lables div");
 let msgs = document.querySelectorAll(".msg");
 let sections = document.querySelectorAll("section");
+let images = document.querySelectorAll("img[data-src]");
+
 /************** UTILITIES **************/
 function displayModal() {
   overlay.classList.toggle("hidden");
@@ -45,6 +47,49 @@ function changeNavOpacity(e) {
     logo.style.opacity = `${this}`;
   }
 }
+let navAnimation = function (enteries) {
+  let header = enteries[0];
+  navBar.classList.toggle("sticky", !header.isIntersecting);
+};
+let revealSection = function (enteries, obs) {
+  let sec = enteries[0];
+  if (!sec.isIntersecting) return;
+  sec.target.classList.remove("hideSection");
+  obs.unobserve(sec.target);
+};
+let lazyLoad = function (enteries, observer) {
+  let [element] = enteries;
+  if (!element.isIntersecting) return;
+  element.target.src = element.target.dataset.src;
+  element.target.addEventListener("load", function (e) {
+    e.target.classList.remove("lazy");
+    observer.unobserve(element);
+  });
+};
+/************** OBSERVERS **************/
+
+let observer = new IntersectionObserver(navAnimation, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${navBar.getBoundingClientRect().height}px`,
+});
+let sectionObs = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15,
+  rootMargin: "0px",
+});
+let lazyLoadingObs = new IntersectionObserver(lazyLoad, {
+  root: null,
+  threshold: 0,
+});
+observer.observe(document.getElementById("header"));
+sections.forEach((el) => {
+  if (el.getAttribute("id") !== "header") {
+    sectionObs.observe(el);
+    el.classList.add("hideSection");
+  }
+});
+images.forEach((img) => lazyLoadingObs.observe(img));
 /************** EVENTS **************/
 openAccountBtn.addEventListener("click", displayModal);
 openAccBtnFooter.addEventListener("click", displayModal);
@@ -75,34 +120,3 @@ operationsContainer.addEventListener("click", function (e) {
 });
 nav.addEventListener("mouseover", changeNavOpacity.bind(0.5));
 nav.addEventListener("mouseout", changeNavOpacity.bind(1));
-let navAnimation = function (enteries) {
-  let header = enteries[0];
-  navBar.classList.toggle("sticky", !header.isIntersecting);
-};
-let revealSection = function (enteries, obs) {
-  let sec = enteries[0];
-  console.log(sec);
-  if (!sec.isIntersecting) return;
-  sec.target.classList.remove("hideSection");
-  obs.unobserve(sec.target);
-};
-
-let observer = new IntersectionObserver(navAnimation, {
-  root: null,
-  threshold: 0,
-  rootMargin: `-${navBar.getBoundingClientRect().height}px`,
-});
-observer.observe(document.getElementById("header"));
-
-let sectionObs = new IntersectionObserver(revealSection, {
-  root: null,
-  threshold: 0.15,
-  rootMargin: "0px",
-});
-
-sections.forEach((el) => {
-  if (el.getAttribute("id") !== "header") {
-    sectionObs.observe(el);
-    el.classList.add("hideSection");
-  }
-});
