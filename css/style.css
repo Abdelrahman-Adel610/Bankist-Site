@@ -59,7 +59,7 @@ nav {
 .sticky {
     position: fixed;
     background-color: #ffffffb8;
-    z-index: 9999;
+    z-index: 9999999999;
 }
 
 /******************************************************/
@@ -434,20 +434,27 @@ ion-icon {
     margin-bottom: 8rem;
 }
 
+
+
 .slider {
+    position: relative;
     width: 80%;
     margin-inline: auto;
-    position: relative;
+    height: 28.125rem;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+    overflow: hidden;
 }
 
 .arrow {
     width: 100%;
-    position:
-        absolute;
+    position: absolute;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
     justify-content: space-between;
+    z-index: 9999;
 }
 
 .arrow ion-icon {
@@ -456,12 +463,17 @@ ion-icon {
 }
 
 .slide {
-    width: 75%;
+    transition: all .6s;
+    padding-inline: 6.125rem;
+    width: 100%;
+    top: 0;
+    position: absolute;
     margin-inline: auto;
     padding-bottom: 5rem;
 }
 
 .slide h2 {
+    margin-top: 1.5rem;
     position: relative;
     font-weight: 500;
     margin-bottom: 2.75rem;
@@ -471,7 +483,7 @@ ion-icon {
     font-size: 1.125rem;
     color:
         #666666;
-    margin-bottom: 2.75rem;
+    margin-bottom: 1rem;
     line-height: 1.9;
     font-weight: 300;
 }
@@ -479,7 +491,7 @@ ion-icon {
 .slide h2::before {
     content: "\201C";
     position: absolute;
-    top: -3.75rem;
+    top: -3.125rem;
     left: -5.625rem;
     line-height: 1;
     font-size: 11.875rem;
@@ -488,17 +500,20 @@ ion-icon {
 }
 
 .dots {
-    position:
-        absolute;
-    bottom: 0;
+    z-index: 999;
+    position: absolute;
+    bottom: 0%;
     left: 50%;
     transform: translate(-50%, 0);
 }
 
 .dots button {
+
+    cursor: pointer;
+    transition: all 0.6s;
     margin-right: .75rem;
     width: .625rem;
-    background-color: #44444485;
+    background-color: #8c8c8c85;
     border: 0;
     height: .625rem;
     border-radius: 50%;
@@ -513,18 +528,24 @@ ion-icon {
 
 .owner img {
     border-radius: 50%;
-    height: 5.625rem;
+    height: 3.75rem;
     width: auto;
 }
 
 .owner p span {
-    color: #444444;
+    color: #444;
     font-weight: 600;
 }
 
 .owner p {
-    margin-top: 2.5rem;
+    margin-top: .75rem;
 }
+
+.dots .select {
+    background-color: #616161;
+
+}
+
 
 /******************************************************/
 /************************ OPEN ACCOUNT ***********************/

@@ -12,15 +12,23 @@ let operations = document.querySelectorAll(".lables div");
 let msgs = document.querySelectorAll(".msg");
 let sections = document.querySelectorAll("section");
 let images = document.querySelectorAll("img[data-src]");
-
+let slides = document.querySelectorAll(".slide");
+let currentSlide = 0;
+let numberOfSlides = slides.length;
+let prevSlide = document.querySelector(".arrow ion-icon:first-child");
+let nextSlide = document.querySelector(".arrow ion-icon:last-child");
+let dots = document.querySelectorAll(".dots button");
+let dotArea = document.querySelector(".dots");
 /************** UTILITIES **************/
 function displayModal() {
   overlay.classList.toggle("hidden");
   modal.classList.toggle("hidden");
 }
 function closeModal() {
-  overlay.classList.toggle("hidden");
-  modal.classList.toggle("hidden");
+  if (!overlay.classList.contains("hidden")) {
+    overlay.classList.toggle("hidden");
+    modal.classList.toggle("hidden");
+  }
 }
 function scrollto(sectionid) {
   let section = document.getElementById(sectionid);
@@ -66,6 +74,31 @@ let lazyLoad = function (enteries, observer) {
     observer.unobserve(element);
   });
 };
+let gotoSlide = function (number) {
+  slides.forEach((sl, i) => {
+    sl.style.transform = `translateX(${(i - number) * 100}%)`;
+  });
+};
+let updateDot = function () {
+  dots.forEach((el) => el.classList.remove("select"));
+  dots[currentSlide].classList.add("select");
+};
+(function () {
+  gotoSlide(0);
+  updateDot();
+})();
+function NextSlide() {
+  if (currentSlide + 1 === numberOfSlides) currentSlide = 0;
+  else currentSlide++;
+  gotoSlide(currentSlide);
+  updateDot();
+}
+function PrevSlide() {
+  if (currentSlide === 0) currentSlide = numberOfSlides - 1;
+  else currentSlide--;
+  gotoSlide(currentSlide);
+  updateDot();
+}
 /************** OBSERVERS **************/
 
 let observer = new IntersectionObserver(navAnimation, {
@@ -120,3 +153,24 @@ operationsContainer.addEventListener("click", function (e) {
 });
 nav.addEventListener("mouseover", changeNavOpacity.bind(0.5));
 nav.addEventListener("mouseout", changeNavOpacity.bind(1));
+
+nextSlide.addEventListener("click", NextSlide);
+prevSlide.addEventListener("click", PrevSlide);
+dotArea.addEventListener("click", function (e) {
+  if (e.target.dataset.slide) {
+    currentSlide = e.target.dataset.slide - 1;
+    gotoSlide(currentSlide);
+    updateDot();
+  }
+});
+document.addEventListener("keydown", function (e) {
+  if (e.key === "ArrowLeft") {
+    PrevSlide();
+  }
+  if (e.key === "ArrowRight") {
+    NextSlide();
+  }
+  if (e.key === "Escape") {
+    closeModal();
+  }
+});
