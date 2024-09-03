@@ -5,6 +5,8 @@ let modal = document.querySelector(".modal");
 let learnMoreBtn = document.querySelector(".center a");
 let openAccBtnFooter = document.querySelector("#OpenAccountNow a");
 let nav = document.querySelector(".nav");
+let navBar = document.querySelector("nav");
+
 let close_Modal = document.querySelector(".modal svg");
 let operationsContainer = document.querySelector(".lables");
 let operations = document.querySelectorAll(".lables div");
@@ -73,3 +75,14 @@ operationsContainer.addEventListener("click", function (e) {
 });
 nav.addEventListener("mouseover", changeNavOpacity.bind(0.5));
 nav.addEventListener("mouseout", changeNavOpacity.bind(1));
+let navAnimation = function (enteries) {
+  let header = enteries[0];
+  navBar.classList.toggle("sticky", !header.isIntersecting);
+};
+
+let observer = new IntersectionObserver(navAnimation, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${navBar.getBoundingClientRect().height}px`,
+});
+observer.observe(document.getElementById("header"));

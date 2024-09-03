@@ -45,15 +45,17 @@ img {
 }
 
 nav {
-    position: fixed;
-    background-color: #ffffffb8;
-    height: 10%;
     width: 100%;
     display: flex;
     justify-content: center;
+    height: 5.625rem;
+
+}
+
+.sticky {
+    position: fixed;
+    background-color: #ffffffb8;
     z-index: 9999;
-
-
 }
 
 /******************************************************/
@@ -68,7 +70,7 @@ div.hidden {
     width: 100%;
     background-color: #00000091;
     backdrop-filter: blur(.3125rem);
-    z-index: 9999;
+    z-index: 999999;
     display: flex;
     align-items: center;
     justify-content: center;
