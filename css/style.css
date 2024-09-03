@@ -234,7 +234,13 @@ nav .logo {
 }
 
 section {
+    transition: all 0.3s;
     border-bottom: #444 .0625rem solid;
+}
+
+.hideSection {
+    opacity: 0;
+    transform: translateY(5rem);
 }
 
 /******************************************************/

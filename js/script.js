@@ -6,11 +6,11 @@ let learnMoreBtn = document.querySelector(".center a");
 let openAccBtnFooter = document.querySelector("#OpenAccountNow a");
 let nav = document.querySelector(".nav");
 let navBar = document.querySelector("nav");
-
 let close_Modal = document.querySelector(".modal svg");
 let operationsContainer = document.querySelector(".lables");
 let operations = document.querySelectorAll(".lables div");
 let msgs = document.querySelectorAll(".msg");
+let sections = document.querySelectorAll("section");
 /************** UTILITIES **************/
 function displayModal() {
   overlay.classList.toggle("hidden");
@@ -79,6 +79,13 @@ let navAnimation = function (enteries) {
   let header = enteries[0];
   navBar.classList.toggle("sticky", !header.isIntersecting);
 };
+let revealSection = function (enteries, obs) {
+  let sec = enteries[0];
+  console.log(sec);
+  if (!sec.isIntersecting) return;
+  sec.target.classList.remove("hideSection");
+  obs.unobserve(sec.target);
+};
 
 let observer = new IntersectionObserver(navAnimation, {
   root: null,
@@ -86,3 +93,16 @@ let observer = new IntersectionObserver(navAnimation, {
   rootMargin: `-${navBar.getBoundingClientRect().height}px`,
 });
 observer.observe(document.getElementById("header"));
+
+let sectionObs = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15,
+  rootMargin: "0px",
+});
+
+sections.forEach((el) => {
+  if (el.getAttribute("id") !== "header") {
+    sectionObs.observe(el);
+    el.classList.add("hideSection");
+  }
+});
