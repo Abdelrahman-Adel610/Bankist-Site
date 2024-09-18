@@ -55,7 +55,7 @@ All the page animations were implemented using only pure js && The js Itersectio
    
 ## Contributing
 
-If you'd like to contribute to the Mapty project, please follow these guidelines:
+If you'd like to contribute to the Bankist-site project, please follow these guidelines:
 
 1. **Fork the Repository:** 🍴
    Click the "Fork" button at the top right of the repository page.
